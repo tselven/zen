@@ -18,7 +18,7 @@ elseif ($args[1] == '--help'){
     echo "Options:\n 
     -c [controller] \n 
     -m [model] \n";
-    echo "Available commands: serve for run development server";
+    echo "Available commands: \n serve - for run development server ";
 }
 elseif($args[1] == '-m' && $args[2] == '-c' && isset($args[3])){
     $name = $args[3]."Controller.php";
