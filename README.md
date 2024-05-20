@@ -1,6 +1,6 @@
-***Flash Framework***
+***AstroSpark Framework***
 
-Flash is a PHP Framework for develop APIs and Web Applications.
+AstroSpark is a PHP Framework for develop APIs and Web Applications.
 
 **To Run This Application**
 1. First clone this repository.
@@ -10,7 +10,6 @@ Flash is a PHP Framework for develop APIs and Web Applications.
 5. Start the Apache server & mysql server (if not already running).
 6. Browse the root url of your localhost  
 Ex: http://localhost  or  http://localhost:8080
-
 ```
 Note : this project use routing that based on url so its require to be run as root project,
 insted of usual xampp sub url format  
