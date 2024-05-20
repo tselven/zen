@@ -1,0 +1,16 @@
+{
+    "name": "flash/flash",
+    "license": "proprietary",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Poologarasa Thamilselven",
+            "email": "tselven13@gmail.com"
+        }
+    ],
+    "description": "Flash is a modern PHP MVC web and API development framework.",
+    "require": {
+        "php": "^8.2"
+    },
+    "minimum-stability" :"stable"
+}
