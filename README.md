@@ -1,10 +1,6 @@
-***SMART TRIPS***
+***Flash Framework***
 
-!['nallur'](/assets/images/demo/home.png)
-
-smart trips is a dynamic website that helps users to plan
-their trips and find the best destinations, book hotels,
-hire guides and hire vehicles.
+Flash is a PHP Framework for develop APIs and Web Applications.
 
 **To Run This Application**
 1. First clone this repository.
@@ -19,7 +15,7 @@ Ex: http://localhost  or  http://localhost:8080
 Note : this project use routing that based on url so its require to be run as root project,
 insted of usual xampp sub url format  
 
-Wrong : http://localhost:8080/smart-trips  
+Wrong : http://localhost:8080/your-project 
 Correct : http://localhost:8080/
 ```
 
