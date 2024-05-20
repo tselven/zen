@@ -1,5 +1,5 @@
 {
-    "name": "tselven/flash",
+    "name": "tselven/AstroSpark",
     "license": "proprietary",
     "type": "project",
     "authors": [
@@ -8,7 +8,7 @@
             "email": "tselven13@gmail.com"
         }
     ],
-    "description": "Flash is a modern PHP MVC web and API development framework.",
+    "description": "AstroSpark is a modern PHP MVC web and API development framework.",
     "require": {
         "php": "^8.2"
     },
