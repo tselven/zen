@@ -42,8 +42,10 @@ class Controller
     public static function error(String $name)
     {
         header("Content-Type: text/html; charset=UTF-8");
-        $page = file_get_contents($_ENV['ROOT_DIR']."/views/Errors/{$name}View.php");
-        echo $page;
+        $page = $_ENV['ROOT_DIR']."/views/Errors/{$name}View.php";
+        if(file_exists($page)){
+            include $page;
+        }
     }
     function upload_file($file, $path)
     {
