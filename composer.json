@@ -6,11 +6,18 @@
         {
             "name": "Poologarasa Thamilselven",
             "email": "tselven13@gmail.com"
+        },
+        {
+            "name" : " Priyanka Thirunavukarasu",
+            "email": "priyanka@gmail.com"
         }
     ],
     "description": "AstroSpark is a modern PHP MVC web and API development framework.",
     "require": {
         "php": "^8.2"
+    },
+    "scripts": {
+        "serve" : "php astro serve"
     },
     "minimum-stability" :"stable"
 }

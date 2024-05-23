@@ -1,0 +1,39 @@
+<?php
+include "core/console.php";
+use Core\Console;
+$args = $_SERVER['argv'];
+$console = new Console();
+// The first argument (index 0) is the script name itself, so we start from index 1
+if ($args[1] == 'serve'){
+    system('php -S localhost:8080 index.php');
+}
+elseif($args[1] == '-v'){
+    echo "Version : 1.0.0";
+}
+elseif($args[1] == 'migrate'){
+    echo "Migrating...";
+}
+elseif ($args[1] == '--help'){
+    echo "Usage: \n command [options] [arguments] \n";
+    echo "Options:\n 
+    -c [controller] \n 
+    -m [model] \n";
+    echo "Available commands: \n serve - for run development server ";
+}
+elseif($args[1] == '-m' && $args[2] == '-c' && isset($args[3])){
+    $name = $args[3]."Controller.php";
+    $console->makeController($name);
+    echo $args[3]." is created";
+}
+elseif($args[1] == '-m' && $args[2] == '-m' && isset($args[3])){
+    $name = $args[3].".php";
+    $console->makeModel($name);
+    echo "Model: ".$args[3]." is created";
+}
+elseif($args[1] == '-m' && $args[2] == '-c' || $args[2] == '-m' && !isset($args[3])){
+    echo "Missing:php cli -m {$args[2]} [name] parameter";
+}
+else{
+    echo "invalid arguments, use --help for more information";
+}
+?>

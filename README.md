@@ -7,9 +7,9 @@ AstroSpark is a PHP Framework for develop APIs and Web Applications.
 ```
 composer create-project tselven/astro-spark your-project
 ```
-2. Run it by using inbuild cli
+2. Run it by using in-build astro cli
 ```
-php cli serve
+php astro serve
 ```
 3. create controller
 ```
@@ -17,20 +17,9 @@ php cli -m -c [name]
 ```
 
 ```
-Note : this project use routing that based on url so its require to be run as root project,
-insted of usual xampp sub url format  
+Note : this project use routing that based on uri so its require to be run as root project,
+instead of usual XAMPP sub url format  
 
 Wrong : http://localhost:8080/your-project 
 Correct : http://localhost:8080/
-```
-
-```php
-<?php
-require_once "autoload.php";
-use Core\Router;
-$uri =  $_SERVER["REQUEST_URI"];
-$router = new Router();
-$router->load('web.json');
-$router->load('api.json');
-$router->route($uri);
 ```

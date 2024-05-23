@@ -3,6 +3,7 @@
 namespace Core;
 use Config\Config;
 use Core\Controller;
+use Core\Media;
 
 class Router
 {
@@ -11,12 +12,7 @@ class Router
     public $putRoutes = array();
     public $deleteRoutes = array();
     public $routes = array();
-    public $dRoutes = [
-        "/src/|2"          =>     "assets@Files",
-        "/video/|1"        =>     "assets@Video",
-        "/audio/|1"        =>     "assets@Audio",
-        "/image/|1"        =>     "assets@Img",
-    ];
+    public $dRoutes = array();
 
     public static function get($uri,$controller){
         $getRoutes[$uri] = $controller;
@@ -41,8 +37,8 @@ class Router
             $this->execute($str);
         } 
         elseif(file_exists($public)){
-            header('Content-Type: text/html');
-            include $public;
+            $file = new Media();
+            $file->serve($uri);
             $this->status = true;
         }
         else {
@@ -54,7 +50,7 @@ class Router
                 $pref = str_replace($pip, '', $uri);
                 $exp = explode('/', $pref);
                 $argsO = intval(count($exp));
-                if (str_contains($uri, $pip) && $argsR <= $argsO) {
+                if (str_contains($uri, $pip) && $argsR == $argsO) {
                     $this->status = true;
                     $data = $this->dRoutes[$key];
                     $this->execute($data);
@@ -118,10 +114,12 @@ class Router
                     $route = new $controller();
                     $route->$action();
                 } else {
-                    echo "Class $controller not found in $path";
+                    echo "Error: class not found";
+                    //Controller::error('404');
                 }
             } else {
-                echo "Controller not found";
+                echo "Error: file not found";
+                //Controller::error('404');
             }
         }
     }

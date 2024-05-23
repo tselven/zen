@@ -6,7 +6,8 @@ use Config\Config;
 
 class Media
 {
-    private $aud_type = [
+    protected $cont_type = "";
+    protected $aud_type = [
         "mp3" => "audio/mpeg",
         "wav" => "audio/wav",
         "ogg" => "audio/ogg",
@@ -16,7 +17,7 @@ class Media
         "m4r" => "audio/m4r",
         "m4v" => "audio/m4v",
     ];
-    private $vid_type = [
+    protected $vid_type = [
         "mp4"   => "video/mp4",
         "webm"  => "video/webm",
         "ogg"   => "video/ogg",
@@ -30,7 +31,7 @@ class Media
     /**
      * @var array $img_type list of supported image formats
      */
-    private $img_type = [
+    protected $img_type = [
         "jpg"  => "image/jpeg",
         "jfif" => "image/jpeg",
         "png"  => "image/png",
@@ -43,7 +44,7 @@ class Media
         "ico"  => "image/ico"
     ];
 
-    private $file_type = [
+    protected $file_type = [
         "css"  => "text/css",
         "js"   => "application/javascript",
         "html" => "text/html",
@@ -91,11 +92,33 @@ class Media
         readfile($path);
     }
 
-    function file(string $file){
+    function file(string $file)
+    {
         $extension = substr($file, strrpos($file, '.') + 1);
         $ftype = $this->file_type[$extension];
         $path = Config::$root_path . "/assets/files/" . $file;
         header("Content-Type: $ftype");
         readfile($path);
+    }
+    function serve(string $filename)
+    {
+        $extension = substr($filename, strrpos($filename, '.') + 1);
+        if (isset($this->file_type[$extension])) {
+            $cont_type = $this->file_type[$extension];
+        } elseif (isset($this->img_type[$extension])) {
+            $cont_type = $this->img_type[$extension];
+        } elseif (isset($this->aud_type[$extension])) {
+            $cont_type = $this->aud_type[$extension];
+        } elseif (isset($this->vid_type[$extension])) {
+            $cont_type = $this->vid_type[$extension];
+        } else {
+            echo "<h1 style='color:red'>Unknown extension</h1>";
+        }
+
+        if (!empty($cont_type)) {
+            header("Content-Type: {$cont_type}");
+            $path = Config::$root_path . "/public" . "/" . $filename;
+            readfile($path);
+        }
     }
 }

@@ -20,6 +20,12 @@ class Console
         $dir = dirname(__DIR__);
         $folderPath = $dir."/controller";
         $conName = explode('.',$name)[0];
+        echo $conName."/";
+        if(str_contains('/',$conName)){
+            $arr = explode('/',$conName);
+            $conName = $arr[count($arr)-1];
+            echo "Converted: ".$conName;
+        }
         $content = <<<PHP
             <?php
             use Core\Controller;
@@ -62,6 +68,11 @@ class Console
         // Specify the filename
         $filename = $path . "/" .$name;
         // Write the contents to the file
-        file_put_contents($filename, $content);
+        $status = file_put_contents($filename, $content);
+        if($status){
+            return true; // Success
+        }else{
+            return false; // Failure
+        }
     }
 }
