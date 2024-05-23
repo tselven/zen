@@ -5,7 +5,7 @@ AstroSpark is a PHP Framework for develop APIs and Web Applications.
 **To Run This Application**
 1. Use composser to create project
 ```
-composer create-project tselven/astro-spark your-project
+composer create-project syntax-squad/astro-spark your-project
 ```
 2. Run it by using in-build astro cli
 ```
