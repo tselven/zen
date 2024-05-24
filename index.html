@@ -13,32 +13,124 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
       integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
       crossorigin="anonymous"
     />
   </head>
-  <body class="text-center bg-light">
-    <div class="bg-secondary p-2">
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg" style="background: rgb(60, 0, 255)">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="index.html">AstroSpark</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                href="./Docs.html"
+                >Docs</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Examples</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Contribute</a>
+            </li>
+          </ul>
+        </div>
+        <span class="d-flex mx-2">
+          <i class="bi bi-github text-white"></i> &nbsp;
+          <i class="bi bi-github text-white"></i> &nbsp;
+          <i class="bi bi-github text-white"></i> &nbsp;
+        </span>
+      </div>
+    </nav>
+
+    <div
+      class="d-flex bg-secondary text-center p-2"
+      style="flex-direction: column; align-items: center"
+    >
       <h1 class="text-white">Welcome to AstroSpark</h1>
       <p class="text-white">A PHP Framework for API and Web Development</p>
-      <code class="border p-2 bg-dark text-white"
-        >composer create-project syntax-squad/astro-spark your-project</code
+      <span
+        class="border d-flex py-1 px-2 bg-dark text-white"
+        style="
+          width: fit-content;
+          align-items: center;
+        "
       >
+        <code class="text-white" id="code"
+          >composer create-project syntax-squad/astro-spark your-project</code
+        >
+        &nbsp;&nbsp;
+        <i class="bi bi-copy" onclick="copyCode()" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Copy Code"></i>
+      </span>
       <div class="d-block my-3">
-        <a href="https://github.com/Syntax-Squad/AstroSpark/"><button class="btn btn-dark rounded mx-1">
-          <i class="bi bi-github"></i> GitHub
-        </button></a>
-        <a href="./Docs.html"><button class="btn btn-primary rounded mx-1">
-          <i class="bi bi-facebook"></i> Read Docs
-        </button></a>
+        <a href="https://github.com/Syntax-Squad/AstroSpark/"
+          ><button class="btn btn-dark rounded-pill mx-1">
+            <i class="bi bi-github"></i> GitHub
+          </button></a
+        >
+        <a href="./Docs.html"
+          ><button class="btn btn-primary rounded-pill mx-1">
+            <i class="bi bi-facebook"></i> Read Docs
+          </button></a
+        >
       </div>
     </div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <div style="background:rgb(255, 255, 153)">
+      <h3 class="text-center">Features</h3>
+      <div class="p-3 d-flex" style="justify-content:space-around">
+        <div class="">
+          <div class="card shadow p-2" style="width: 18rem">
+            <h4 class="card-title text-center">MVC Architecture</h4>
+            <p class="card-description">
+              Read the docs for understand the framework
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <div class="card shadow p-2" style="width: 18rem">
+            <h4 class="card-title text-center">URL Routing</h4>
+            <p class="card-description">
+              Read the docs for understand the framework
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <div class="card shadow p-2" style="width: 18rem">
+            <h4 class="card-title text-center">Scripts</h4>
+            <p class="card-description">
+              Read the docs for understand the framework
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      
+    </footer>
+      <!-- Script to initialize tooltips -->
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="docs.min.js"></script>
   </body>
 </html>
