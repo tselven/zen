@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AstroSpark</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,6 +21,7 @@
       integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body class="bg-light">
     <nav class="navbar navbar-expand-lg" style="background: rgb(60, 0, 255)">
@@ -67,10 +68,7 @@
       class="d-flex bg-secondary text-center p-2"
       style="flex-direction: column; align-items: center"
     >
-      <h1 class="text-white position-relative my-3">Welcome to AstroSpark 
-        <span style="font-size:1rem" class="mx-2 position-absolute top-0 start-100 translate-end badge text-bg-dark rounded-pill">
-          v1.1.0
-        </span>
+      <h1 class="text-white position-relative my-3">AstroSpark Contributions!
       </h1>
       <p class="text-white">A PHP Framework for API and Web Development</p>
       <span
@@ -81,7 +79,7 @@
         "
       >
         <code class="text-white" id="code"
-          >composer create-project syntax-squad/astro-spark your-project</code
+          >git clone https://github.com/Syntax-Squad/AstroSpark.git</code
         >
         &nbsp;&nbsp;
         <i class="bi bi-copy" onclick="copyCode()" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Copy Code"></i>
@@ -89,7 +87,7 @@
       <div class="d-block my-3">
         <a href="https://github.com/Syntax-Squad/AstroSpark/"
           ><button class="btn btn-dark rounded-pill mx-1">
-            <i class="bi bi-github"></i> GitHub
+            <i class="fa-solid fa-code-fork"></i> Fork on GitHub
           </button></a
         >
         <a href="./Docs.html"
@@ -99,7 +97,67 @@
         >
       </div>
     </div>
-    
+     <!--Contributors Guidelines-->
+     <div class="container my-3 p-2">
+      <h1>Contributor Guidelines</h1>
+      <hr>
+      <ol>
+        <li><strong>Avoid Code Duplication :</strong> Do not create new solution or functions
+        for existing features. Avoid code redundancy</li>
+        <li><strong>Keep Code Clean :</strong> Keep your code clean and readable.</li>
+        <li><strong>Discus Before Change:</strong> Open an issue on issues tab before you start to 
+        develop a feature or made a change in code to avoid unexpected code merging conflicts.</li>
+        <li><strong>Add Comments Properly : </strong>Add useful comments on each changes you made, for help to
+           understand and collaborate easily.</li>
+           <li><strong>Push Your Changes to a New Branch:</strong> Always create a new branch and push your changes to that and open a pull request.<br/>
+          ( Don't try to push main branch & don't use <code>--force</code> pushes ) </li>
+          <li><strong>Use Forked Repo (optional) :</strong> You can fork the repo from Syntax-Squad/AstroSpark and use it to contribute.</li>
+          <li><strong>Describe and Document Your Changes:</strong> Give a full description
+          about your changes while submitting a pull request.</li>
+      </ol>
+      <div class="alert alert-danger"><strong>Notice: </strong>
+      we are aiming to provide a better framework for developers without having 
+      large dependency tree. Please avoid using another composer or npm packages 
+      for a feature or functionality. You want to develop the functionality from scratch with in 
+      this project. (You can use CDN links and open-source stable 3rd-party APIs for this project)
+      </div>
+      <h2>Pre-Requisites for Contribute</h2>
+      <hr>
+      <ul>
+        <li>Basic knowledge of HTML, CSS and JavaScript.</li>
+        <li>Good knowledge in PHP.</li>
+        <li>Deep understanding about OOPS concepts.</li>
+        <li>Basics about API and how its works.</li>
+        <li>Basics of Larval Framework.</li>
+      </ul>
+      <div class="alert alert-primary m-3"><strong>Note: </strong>These pre-requisites are
+      helps you to understand and efficiently contribute to the project. <br>
+     But we are welcome all interested contributors without coding knowledge too.
+     (For Maintain Documentation and Pages)</div>
+      <h2>What You Can Do ?</h2>
+      <hr>
+      <ul type="disc">
+        <li>Fix the Bugs.</li>
+        <li>Develop a new feature.</li>
+        <li>Improve the Documentation.</li>
+        <li>Improve the Code Quality.</li>
+        <li>Improve the Performance.</li>
+        <li>Improve the Security.</li>
+        <li>Design Error Pages. (for framework)</li>
+        <li>Update github pages contents & design</li>
+        <li>Give suggestions via issues.</li>
+      </ul>
+
+      <h2>Benefits for Contributors</h2>
+      <hr>
+      <ul type="square">
+        <li>You will be a part of an open source community.</li>
+        <li>Improve your coding skills.</li>
+        <li>Grow your network & collaborate with multiple developers.</li>
+        <li>Improve your soft-skills.</li>
+      </ul>
+    </div>
+    <!--End Contributors Guidelines-->
     <footer>
 
     </footer>
