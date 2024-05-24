@@ -1,4 +1,13 @@
-***AstroSpark Framework***
+***AstroSpark Framework***  
+
+![Github Created At](https://img.shields.io/github/created-at/Syntax-Squad/AstroSpark) &nbsp;
+![GitHub Release](https://img.shields.io/github/v/release/Syntax-Squad/AstroSpark) &nbsp;
+![GitHub Release Date](https://img.shields.io/github/release-date/Syntax-Squad/AstroSpark)
+&nbsp;
+![GitHub Repo stars](https://img.shields.io/github/stars/Syntax-Squad/AstroSpark)
+&nbsp;
+![Packagist Downloads](https://img.shields.io/packagist/dt/syntax-squad/astro-spark)
+
 
 AstroSpark is a PHP Framework for develop APIs and Web Applications.
 
