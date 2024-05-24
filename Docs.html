@@ -25,9 +25,10 @@
     .sidebar {
       position: fixed;
       top: 20;
+      
       left: 0;
       height: 100%;
-      width: 250px;
+      width: 200px;
       background-color: #f8f9fa;
       
       overflow-y: auto; /* Enable vertical scrolling */
@@ -56,7 +57,7 @@
     }
     /* Style for the main content */
     .content {
-      margin-left: 250px; /* Adjust according to sidebar width */
+      margin-left: 200px; /* Adjust according to sidebar width */
       padding: 20px;
     }
   </style>
@@ -91,7 +92,7 @@
                 <a class="nav-link text-light" href="#">Examples</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Contribute</a>
+                <a class="nav-link text-white" href="./contribute.html">Contribute</a>
               </li>
             </ul>
           </div>
@@ -104,7 +105,7 @@
       </nav>
     <!--End Main Nav-->
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar shadow">
     <h2 class="text-center">Docs</h2>
     <span class="flex-column" style="list-style-type:none;">
         <li class="sidebar-item">
@@ -112,23 +113,23 @@
             <div class="collapse" id="collapseSection1">
               <ul class="nav flex-column ml-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="#section1-subsection1">Subsection 1</a>
+                  <a class="nav-link" href="#section1-subsection1">Installation</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#section1-subsection2">Subsection 2</a>
+                  <a class="nav-link" href="#section1-subsection2">First Project</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="sidebar-item">
-            <a class="aside-link nav-link" data-toggle="collapse" href="#collapseSection2">Section 2</a>
+            <a class="aside-link nav-link" data-toggle="collapse" href="#collapseSection2">Features <i class="bi bi-caret-right-fill"></i></a>
             <div class="collapse" id="collapseSection2">
               <ul class="nav flex-column ml-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="#section2-subsection1">Subsection 1</a>
+                  <a class="nav-link" href="#section2-subsection1">Controller</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#section2-subsection2">Subsection 2</a>
+                  <a class="nav-link" href="#section2-subsection2">Scripts</a>
                 </li>
               </ul>
             </div>
@@ -137,7 +138,7 @@
   </aside>
 
   <!-- Main content -->
-  <main class="content">
+  <main class="content bg-light">
     <div class="container">
       <section id="section1">
         <h2>Section 1</h2>
