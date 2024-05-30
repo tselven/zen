@@ -1,6 +1,7 @@
 <?php
 
 namespace Core;
+
 use Config\Config;
 use Core\Controller;
 use Core\Media;
@@ -14,34 +15,38 @@ class Router
     public $routes = array();
     public $dRoutes = array();
 
-    public static function get($uri,$controller){
+    public static function get($uri, $controller)
+    {
         $getRoutes[$uri] = $controller;
     }
-    public static function post(){
-
+    public static function post()
+    {
     }
-    public static function put(){
-
+    public static function put()
+    {
     }
     protected $status;
+    /**
+     * validate the request route uri and return the error message if not found or pass it to execute() method
+     * @param string $uri URI of the request
+     */
     function route($uri)
     {
-        $public = Config::$root_path."/public".$uri;        
-        
-        if(str_contains($uri,'?')){
-            $uri = explode('?',$uri)[0];
+
+        $public = Config::$root_path . "/public" . $uri;
+
+        if (str_contains($uri, '?')) {
+            $uri = explode('?', $uri)[0];
         }
         if (isset($this->routes[$uri])) {
             $str = $this->routes[$uri];
             $this->status = true;
             $this->execute($str);
-        } 
-        elseif(file_exists($public)){
+        } elseif (file_exists($public)) {
             $file = new Media();
             $file->serve($uri);
             $this->status = true;
-        }
-        else {
+        } else {
             //check for dynamic routes.
             foreach ($this->dRoutes as $key => $value) {
                 $split = explode('|', $key);
@@ -62,6 +67,10 @@ class Router
             Controller::view('404');
         }
     }
+    /**
+     * Load routes
+     * @param string $file name of the route file
+     */
     public function load($file)
     {
         $path = "Routes/{$file}";
@@ -82,7 +91,10 @@ class Router
         $string = trim($string, '-');
         return $string;
     }
-
+    /**
+     * Performs route action
+     * @param string $str URI
+     */
     function execute($str)
     {
         if (str_contains($str, "#")) {
@@ -96,30 +108,28 @@ class Router
                 $split = explode('-', $str);
                 $controller = explode('-', $controller)[1];
                 $path = Config::$root_path . "/controller/" . $split[0] . "/" . $controller . "Controller.php";
-            }
-            else{
+            } else {
                 $path = Config::$root_path . "/controller/" . $controller . "Controller.php";
             }
             if (file_exists($path)) {
                 include $path;
-                if (class_exists($controller."Controller")) {
-                    if(str_contains('/',$controller)){
-                        $parts = explode('/',$controller);
-                        $last = count($parts)-1;
-                        $controller = $parts[$last]."Controller";
-                    }
-                    else{
-                        $controller = $controller."Controller";
+                if (class_exists($controller . "Controller")) {
+                    if (str_contains('/', $controller)) {
+                        $parts = explode('/', $controller);
+                        $last = count($parts) - 1;
+                        $controller = $parts[$last] . "Controller";
+                    } else {
+                        $controller = $controller . "Controller";
                     }
                     $route = new $controller();
                     $route->$action();
                 } else {
-                    echo "Error: class not found";
-                    //Controller::error('404');
+                    //echo "Error: class not found";
+                    Controller::error('404');
                 }
             } else {
                 echo "Error: file not found";
-                //Controller::error('404');
+                Controller::error('404');
             }
         }
     }

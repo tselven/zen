@@ -1,7 +1,7 @@
 <?php
 namespace Config;
 session_start();
-
+include "config.php";
 /**
  * @category Configuration
  */

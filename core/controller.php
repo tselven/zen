@@ -28,7 +28,10 @@ class Controller
             Controller::error("404");
         }
     }
-
+    /**
+     * Convert array to JSON and return to browser
+     * @param array $data - Data that wat to convert
+     */
     function JSON($data)
     {
         header("Content-Type: application/json");
@@ -38,8 +41,11 @@ class Controller
     {
         return Config::$root_url . "/image/{$img}";
     }
-
-    public static function error(String $name)
+    /**
+     * return the error view.
+     * @param string $name - name of the file
+     */
+    public static function error($name)
     {
         header("Content-Type: text/html; charset=UTF-8");
         $page = Config::$root_path."/views/Errors/{$name}View.php";
@@ -76,7 +82,11 @@ class Controller
     }
 
 
-
+    /**
+     * convert markdown to html
+     * @param string $markdown  Markdown text
+     * @return string  HTML string
+     */
     function markdown($markdown)
     {
         // Convert headings

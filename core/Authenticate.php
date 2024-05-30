@@ -2,26 +2,29 @@
 
 namespace Core;
 
-use Models\User;
-
 class Authenticate
 {
+    public function filter(){
+        if (!empty($_ENV['BLOCK_LIST']['ip']) || !empty($_ENV['BLOCK_LIST']['port']) || !empty($_ENV['BLOCK_LIST']['host'])) {
+            //var_dump($_ENV['BLOCK_LIST']);
+            return false;
+            
+        } else {
+            return true;
+        }
+    }
+    /**
+     * @param string $username - username
+     * @param string $password - password
+     * @return $auth - boolean
+     */
     protected function login($username, $password)
     {
     }
 
     protected static function logout()
     {
-    }
-    protected function isPro($user)
-    {
-    }
 
-    public function getUser($user)
-    {
-        $users = new User();
-        $type = $users->select('User_Type')->where("username = '{$user}' ")->get();
-        return $type[0]['User_Type'];
     }
     function generateOTP($length = 6)
     {
@@ -32,10 +35,14 @@ class Authenticate
         }
         return $otp;
     }
-    public function sendOTP()
+    /**
+     * @param string $mail - mail address
+     * @return void sendOTP - send OTP message too user
+     */
+    public function sendOTP($mail)
     {
         $otp = $this->generateOTP();
-        $to_email = "tselven13@gmail.com";
+        $to_email = $mail;
         $subject = "OTP sent";
         $body = "<h1>Your OTP is : {$otp}</h1>";
 
@@ -69,6 +76,11 @@ class Authenticate
             echo "Invalid email address.";
         }
     }
+
+    /**
+     * @param string $user - username
+     * @param string $otp - OTP code 
+     */
     protected function verifyOTP($user, $otp)
     {
     }

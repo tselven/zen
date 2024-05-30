@@ -1,2 +1,4 @@
-.vscode
-vendor/
+.vscode/
+cache/
+/.env.local
+/vendor/

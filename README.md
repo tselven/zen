@@ -16,6 +16,29 @@ AstroSpark is a PHP Framework for develop APIs and Web Applications.
 ```
 composer create-project tselven/astro-spark your-project
 ```
+
+### Project Folder Structure.
+```
+├───.github
+│   └───ISSUE_TEMPLATE
+├───.vscode
+├───assets
+│   └───images
+│       └───favicons
+├───cache
+├───controller
+│   └───API
+├───core
+│   ├───Enums
+│   ├───Interface
+│   └───view
+├───models
+├───public
+├───Routes
+├───scripts
+└───views
+    └───Errors
+```
 2. Run it by using inbuild cli
 ```
 php cli serve
