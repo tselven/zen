@@ -1,20 +1,30 @@
 <?php
+
 namespace Core;
+
 use Config\Config;
-class Scripts{
+
+class Scripts
+{
     public $args = null;
     protected $langs = [
         "py" => "python",
-        "js" => "javascript",
-        "java" => "java"
+        "js" => "node",
+        "java" => "java", 
+        "go" => "go run"
     ];
-    function run($script){
-        if(isset($this->langs[$script])){
-            $lang = $this->langs[$script];
-            $path = Config::$root_path."/scripts/".$script;
-            echo $path;
+    function run($script,$args = null)
+    {
+        $ext = explode(".",$script)[1];
+        if (isset($this->langs[$ext])) {
+            $lang = $this->langs[$ext];
+            $path = Config::$root_path . "/scripts/" . $script;
+
             $res = exec("{$lang} {$path} {$this->args}");
-            echo $res;
+            return $res;
+        }
+        else{
+            Controller::error('500');
         }
     }
 }

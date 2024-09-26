@@ -14,6 +14,5 @@
       <b class="instruct">Start editing views/indexView.php</b><br/>
       <b class="instruct">Refer <a href="syntax-squad.github.io/AstroSpark">AstroSpark Documentation</a> for more info </b>
     </div>
-    
   </body>
 </html>

@@ -2,13 +2,15 @@
 
 namespace Core;
 
+use Models\users;
+
 class Authenticate
 {
-    public function filter(){
+    public function filter()
+    {
         if (!empty($_ENV['BLOCK_LIST']['ip']) || !empty($_ENV['BLOCK_LIST']['port']) || !empty($_ENV['BLOCK_LIST']['host'])) {
             //var_dump($_ENV['BLOCK_LIST']);
             return false;
-            
         } else {
             return true;
         }
@@ -18,13 +20,26 @@ class Authenticate
      * @param string $password - password
      * @return $auth - boolean
      */
-    protected function login($username, $password)
+    public function login($username, $password)
     {
+        $obj = new users;
+        $result = $obj->select('*')->where("username = '{$username}' AND password = '{$password}'")->get();
+        if ($result != false) {
+            if (count($result) > 0) {
+                return $result;
+                var_dump($result);
+                $_SESSION['login'] = true;
+            } else {
+                return false;
+            }
+        }else{
+            return false;
+        }
     }
 
     protected static function logout()
     {
-
+        unset($_SESSION['login']);
     }
     function generateOTP($length = 6)
     {
@@ -56,7 +71,7 @@ class Authenticate
             'Port' => $_ENV['SMTP_PORT'],
             'Auth' => 'true',
             'Username' => $_ENV['SMTP_USER'],
-            'Password' => trim($_ENV['SMTP_PASS'],'"'),
+            'Password' => trim($_ENV['SMTP_PASS'], '"'),
             'Connection' => $_ENV['SMTP_CON'] //'tsl' or 'ssl' for SSL connection
         );
         echo $additional_headers['Password'];
@@ -67,7 +82,7 @@ class Authenticate
         }
         // Sending email
         if (filter_var($to_email, FILTER_VALIDATE_EMAIL)) {
-            if (mail($to_email, $subject, $body, $headers,$smtp_headers)) {
+            if (mail($to_email, $subject, $body, $headers, $smtp_headers)) {
                 echo "Email sent successfully with OTP: " . $otp;
             } else {
                 echo "Failed to send email.";

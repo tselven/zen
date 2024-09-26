@@ -153,11 +153,12 @@ class Model
                 return $data;
             }
             else{
-                return "No results found";
+                return false;
             }
            
         } else {
             echo mysqli_error($con);
+            return false;
         }
         mysqli_close($con);
     }

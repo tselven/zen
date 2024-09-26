@@ -20,6 +20,7 @@ class Controller
         if (file_exists($view)) {
             ob_start();
             $content = file_get_contents($view);
+            include Config::$root_path."/"."views/views.php";
             include $view;
             $content = ob_get_clean();
             header("Content-Type: text/html ");

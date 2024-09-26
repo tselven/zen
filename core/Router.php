@@ -133,4 +133,8 @@ class Router
             }
         }
     }
+
+    public function middleware($name){
+        
+    }
 }

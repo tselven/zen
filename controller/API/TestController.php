@@ -5,6 +5,6 @@
         function run(){
             $cmd = new Scripts;
             $res = $cmd->run('test.py');
-            //return $this->JSON($res);
+            return $this->json($res);
         }
     }

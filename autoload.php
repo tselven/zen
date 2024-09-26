@@ -35,6 +35,7 @@ function autoloadClasses($dir) {
         }
     }
 }
+require_once "core/helpers.php";
 autoloadClasses(__DIR__.'\core');
 autoloadClasses(__DIR__.'\models');
 class Config

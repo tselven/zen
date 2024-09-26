@@ -112,7 +112,10 @@ class Media
         } elseif (isset($this->vid_type[$extension])) {
             $cont_type = $this->vid_type[$extension];
         } else {
-            echo "<h1 style='color:red'>Unknown extension</h1>";
+            //TODO: make this as a unknown type error.
+            
+            //echo "<h1 style='color:red'>Unknown extension</h1>";
+            Controller::error('404');
         }
 
         if (!empty($cont_type)) {
