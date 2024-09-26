@@ -1,15 +1,11 @@
 {
-    "name": "syntax-squad/astro-spark",
+    "name": "tselven/zen",
     "license": "proprietary",
     "type": "project",
     "authors": [
         {
             "name": "Poologarasa Thamilselven",
-            "email": "tselven13@gmail.com"
-        },
-        {
-            "name" : "Priyanka Thirunavukarasu",
-            "email": "priyanka@gmail.com"
+            "email": "contact@tselven.com"
         }
     ],
     "description": "AstroSpark is a modern PHP MVC web and API development framework.",
