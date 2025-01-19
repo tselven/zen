@@ -18,7 +18,7 @@ class Scripts
         $ext = explode(".",$script)[1];
         if (isset($this->langs[$ext])) {
             $lang = $this->langs[$ext];
-            $path = Config::$root_path . "/scripts/" . $script;
+            $path = Config::$root_path . "/App/scripts/" . $script;
 
             $res = exec("{$lang} {$path} {$this->args}");
             return $res;

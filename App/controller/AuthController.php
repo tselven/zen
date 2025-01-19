@@ -1,6 +1,5 @@
     <?php
-    
-  
+
     use Core\Controller;
     use Core\Authenticate;
     class AuthController extends Controller{

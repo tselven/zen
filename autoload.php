@@ -1,7 +1,9 @@
 <?php
 namespace Config;
+require_once "errorhandler.php";
 session_start();
 include "config.php";
+
 /**
  * @category Configuration
  */
@@ -37,11 +39,22 @@ function autoloadClasses($dir) {
 }
 require_once "core/helpers.php";
 autoloadClasses(__DIR__.'\core');
-autoloadClasses(__DIR__.'\models');
+autoloadClasses(__DIR__.'\App\models');
+
 class Config
 {
     public static $root_url;
     public static $root_path;
+    public static $middleware;
+    private static $config = [];
+
+    public function set($key,$value){
+        self::$config[$key] = $value;
+    }
+
+    public function get($key){
+        return self::$config[$key] ?? null;
+    }
     public static function init()
     {
         $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
@@ -52,6 +65,6 @@ class Config
 Config::init();
 use Core\Helper;
 Helper::load_env();
-
+require_once __DIR__."/App/Helpers/helper.php";
 ini_set("SMTP",$_ENV['SMTP_HOST']);
 ini_set("SMTP_PORT",$_ENV['SMTP_PORT']);

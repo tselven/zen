@@ -1,6 +1,0 @@
-{
-    "/"                         :     "Home@index",
-    "/admin"                    :     "Admin@index",
-    "/login"                    :     "Admin@login",
-    "/auth/login"               :     "Auth@login"
-}

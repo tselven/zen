@@ -24,7 +24,7 @@ class Console
     {
         // Define the folder path where the file will be created
         $dir = dirname(__DIR__);
-        $folderPath = $dir . "/controller";
+        $folderPath = $dir . "/App/controller";
         $conName = explode('.', $name)[0];
         echo $conName . "/";
         if (str_contains('/', $conName)) {
@@ -53,7 +53,7 @@ class Console
     public function makeModel($name)
     {
         $dir = dirname(__DIR__);
-        $folderPath = $dir . "/models";
+        $folderPath = $dir . "/App/models";
         $conName = explode('.', $name)[0];
         $content = <<<PHP
         <?php

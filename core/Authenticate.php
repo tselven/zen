@@ -3,14 +3,24 @@
 namespace Core;
 
 use Models\users;
+use Core\Controller;
 
 class Authenticate
 {
-    public function filter()
+    public static function filter()
     {
         if (!empty($_ENV['BLOCK_LIST']['ip']) || !empty($_ENV['BLOCK_LIST']['port']) || !empty($_ENV['BLOCK_LIST']['host'])) {
-            //var_dump($_ENV['BLOCK_LIST']);
-            return false;
+            if(in_array($_SERVER['REMOTE_ADDR'],$_ENV['BLOCK_LIST']['ip'])){
+                //echo "This IP is blocked";
+                Controller::error('Debug',["errorMessage"=>"Your IP is Blocked"]);
+                exit;
+            }elseif(in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']),$_ENV['BLOCK_LIST']['host'])){
+                Controller::error('Debug',["errorMessage"=>"Your Host is Blocked"]);
+                exit;
+            }elseif(in_array($_SERVER['REMOTE_PORT'],$_ENV['BLOCK_LIST']['port'])){
+                Controller::error('Debug',["errorMessage"=>"Your PORT is Blocked"]);
+                exit;
+            }
         } else {
             return true;
         }

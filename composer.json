@@ -8,7 +8,7 @@
             "email": "contact@tselven.com"
         }
     ],
-    "description": "AstroSpark is a modern PHP MVC web and API development framework.",
+    "description": "Zen is a modern PHP MVC web and API development framework.",
     "require": {
         "php": "^8.2"
     },

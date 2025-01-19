@@ -3,6 +3,7 @@
 namespace Core;
 
 use Config\Config;
+use Core\Controller;
 
 class Media
 {
@@ -115,7 +116,9 @@ class Media
             //TODO: make this as a unknown type error.
             
             //echo "<h1 style='color:red'>Unknown extension</h1>";
-            Controller::error('404');
+            Controller::error('Debug',[
+                "errorMessage" => "Un Supported Media File Extension"
+            ]);
         }
 
         if (!empty($cont_type)) {

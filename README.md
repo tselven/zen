@@ -9,7 +9,7 @@
 ![Packagist Downloads](https://img.shields.io/packagist/dt/syntax-squad/astro-spark)
 
 
-AstroSpark is a PHP Framework for develop APIs and Web Applications.
+Zen is a PHP Framework for develop APIs and Web Applications.
 
 **To Run This Application**
 1. Use composser to create project
@@ -41,11 +41,11 @@ composer create-project tselven/zen your-project
 ```
 2. Run it by using inbuild cli
 ```
-php cli serve
+php astro serve
 ```
 3. create controller
 ```
-php cli -m -c [name]
+php astro -m -c [name]
 ```
 
 ```

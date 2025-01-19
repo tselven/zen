@@ -12,7 +12,7 @@
       <b class="greet">Congratulations! </b><br />
       <b class="disc">You are successfully install and configure AstroSpark</b><br>
       <b class="instruct">Start editing views/indexView.php</b><br/>
-      <b class="instruct">Refer <a href="syntax-squad.github.io/AstroSpark">AstroSpark Documentation</a> for more info </b>
+      <b class="instruct">Refer <a href="https://zen.tselven.com" target="_blank">AstroSpark Documentation</a> for more info </b>
     </div>
   </body>
 </html>

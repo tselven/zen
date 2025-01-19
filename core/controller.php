@@ -20,7 +20,7 @@ class Controller
         if (file_exists($view)) {
             ob_start();
             $content = file_get_contents($view);
-            include Config::$root_path."/"."views/views.php";
+            //include Config::$root_path."/"."views/views.php";
             include $view;
             $content = ob_get_clean();
             header("Content-Type: text/html ");
@@ -46,12 +46,18 @@ class Controller
      * return the error view.
      * @param string $name - name of the file
      */
-    public static function error($name)
+    public static function error($name,$data = [])
     {
+        extract($data);
         header("Content-Type: text/html; charset=UTF-8");
         $page = Config::$root_path."/views/Errors/{$name}View.php";
         if(file_exists($page)){
-            include $page;
+            ob_start();
+            $content = file_get_contents($page);
+            include Config::$root_path."/views/Errors/{$name}View.php";;
+            $content = ob_get_clean();
+            header("Content-Type: text/html ");
+            echo $content;
         }
         else{
 
